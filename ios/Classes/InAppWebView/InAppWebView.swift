@@ -1546,7 +1546,7 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
             let mimeType = navigationResponse.response.mimeType
             if let url = navigationResponse.response.url, navigationResponse.isForMainFrame {
                 print("đây là : \(url), \(url.scheme!), \(mimeType)")
-                if url.scheme != "file", mimeType != nil, !mimeType!.starts(with: "text/") {
+                if url.scheme != "file", mimeType != nil, (!mimeType!.starts(with: "text/") || !mimeType!.starts(with: "text/plain")) {
                     let downloadStartRequest = DownloadStartRequest(url: url.absoluteString,
                                                                     userAgent: nil,
                                                                     contentDisposition: nil,
